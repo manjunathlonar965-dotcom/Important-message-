@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagar Panchami Surprise 🐍</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:Arial,sans-serif; background:linear-gradient(135deg,#fff3b0,#ffd166);
+    overflow:hidden; text-align:center;
+  }
+  .card{
+    width:min(92%,430px); padding:30px 22px; border-radius:28px;
+    background:#fff; box-shadow:0 15px 45px #0003; position:relative;
+  }
+  .snake{font-size:80px; animation:bounce 1.2s infinite alternate}
+  h1{color:#d62828;font-size:30px;margin:8px 0}
+  p{font-size:18px;color:#333}
+  button{
+    border:0; border-radius:999px; padding:14px 24px; font-size:18px;
+    background:#2a9d8f;color:white;cursor:pointer;font-weight:bold;
+  }
+  #surprise{display:none;margin-top:20px;animation:pop .5s ease}
+  .comic{font-size:20px;font-weight:bold;color:#6a1b9a}
+  .small{font-size:14px;color:#777;margin-top:18px}
+  @keyframes bounce{to{transform:translateY(-12px) rotate(4deg)}}
+  @keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+  .emoji{position:absolute;font-size:25px;animation:fall 4s linear infinite}
+  @keyframes fall{from{transform:translateY(-100px) rotate(0)}to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="emoji" style="left:8%;animation-delay:.2s">🌸</div>
+  <div class="emoji" style="left:80%;animation-delay:1.2s">🌼</div>
+  <div class="snake">🐍</div>
+  <h1>Happy Nagar Panchami! 🙏</h1>
+  <p>Hey! I have a small surprise for you... 😏</p>
+  <button onclick="showSurprise()">🐍 Open Surprise 🐍</button>
+
+  <div id="surprise">
+    <div style="font-size:55px">🤣🐍🎉</div>
+    <div class="comic">“Naga Devru blessings bekandre…<br>first this surprise accept maadi!” 😂</div>
+    <p>May your life be full of happiness, luck &amp; lots of smiles! ❤️</p>
+    <div style="font-size:34px">🙏🌸🐍🌸🙏</div>
+  </div>
+  <div class="small">Nagar Panchami Special • Made with ❤️</div>
+</div>
+<script>
+function showSurprise(){
+  document.getElementById('surprise').style.display='block';
+  document.querySelector('button').style.display='none';
+  for(let i=0;i<18;i++){
+    const e=document.createElement('div');
+    e.textContent=['🐍','🌸','✨','😂'][Math.floor(Math.random()*4)];
+    e.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:-40px;font-size:${20+Math.random()*25}px;animation:fall ${2+Math.random()*3}s linear forwards;z-index:10`;
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),6000);
+  }
+}
+</script>
+</body>
+</html>
